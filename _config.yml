@@ -14,4 +14,4 @@ github_username:  ncronquist
 markdown: redcarpet
 highligher: pygments
 exclude: [README.md]
-excerpt_separator: <!--more-->
+excerpt_separator: <span class="more"></span>

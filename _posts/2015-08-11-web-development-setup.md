@@ -6,7 +6,7 @@ category: programming
 tags: [ubuntu, web-development, development, tutorial, rails, node]
 ---
 
-This tutorial will cover setting up a basic web development environment for Vermeer FrontPage and Adobe Coldfusion... Ahhh! Just checking to see if you jumped straight to the terminal commands. I'm actually going to go over the setup to start developing with Node and Rails.<!--more--> This tutorial will be tailored for Ubuntu 14.04, but you should be able to find most of the same programs for other Linux distros or Mac OSX. Windows development won't be covered in this post, but I highly suggest checking out [Chocolatey](https://chocolatey.org/) for your Windows package management needs.
+This tutorial will cover setting up a basic web development environment for Vermeer FrontPage and Adobe Coldfusion... Ahhh! Just checking to see if you jumped straight to the terminal commands. I'm actually going to go over the setup to start developing with Node and Rails.<span class="more"></span> This tutorial will be tailored for Ubuntu 14.04, but you should be able to find most of the same programs for other Linux distros or Mac OSX. Windows development won't be covered in this post, but I highly suggest checking out [Chocolatey](https://chocolatey.org/) for your Windows package management needs.
 
 ### Basic Tools
 

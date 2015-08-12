@@ -6,13 +6,13 @@ category: programming
 tags: [ubuntu, web-development, development, tutorial, rails, node]
 ---
 
-Ok, today we'll be setting up our basic web development environment with Vermeer FrontPage and Adobe Coldfusion.. Ahhh! Just checking to see if you jumped straight to the terminal commands. No, we'll be going over the setup to start developing with Node and Rails.<!--more--> This tutorial will be tailored for Ubuntu 14.04, but you should be able to find most of the same programs for other Linux distros or Mac OSX. Windows development won't be covered in this post, but I highly suggest checking out [Chocolatey](https://chocolatey.org/) for your Windows package management needs.
+This tutorial will cover setting up a basic web development environment for Vermeer FrontPage and Adobe Coldfusion... Ahhh! Just checking to see if you jumped straight to the terminal commands. I'm actually going to go over the setup to start developing with Node and Rails.<!--more--> This tutorial will be tailored for Ubuntu 14.04, but you should be able to find most of the same programs for other Linux distros or Mac OSX. Windows development won't be covered in this post, but I highly suggest checking out [Chocolatey](https://chocolatey.org/) for your Windows package management needs.
 
 ### Basic Tools
 
 #### Copy and Paste in your Terminal
 
-Since this tutorial is going to cover a lot of terminal commands that you'll probably want to just copy and paste, we better get that sorted out first. The gnome terminal supports copy and paste by default, but the default shortcuts are a bit different than standard copy and paste shortcuts.
+Since this tutorial is going to cover a lot of terminal commands that you'll probably want to just copy and paste, we better get that sorted out first. The gnome terminal supports copy and paste by default, but the default shortcuts are a bit different than what you might expect.
 
 ``` bash
 # copy
@@ -22,13 +22,13 @@ ctrl + shift + c
 ctrl + shift + v
 ```
 
-As you can see, the shortcuts aren't *that* much different, but that's not good enough for me. If it's going to drive you crazy too, we can switch them by going to the **Edit -> Keyboard Shortcuts** menu in your terminal.
+As you can see, the shortcuts aren't *that* much different, but that doesn't cut it for me. If it's going to drive you crazy too, we can switch them by going to the **Edit -> Keyboard Shortcuts** menu in your terminal.
 
 Double click on the `copy` and `paste` shortcuts and use your keyboard to enter the normal shortcuts. By default `ctrl + c` is the interrupt shortcut which is used to kill the current command process. This shortcut will automatically get switched to `ctrl + shift + c`.
 
 #### Nautilus Open Terminal
 
-Nautilus is the default file manager in Ubuntu. We probably won't be using the file manager directly too much today, but this is a super useful program that allows you to right click inside the Nautilus file manager and open a terminal window to that location.
+Nautilus is the default file manager in Ubuntu. This tutorial won't be using the file manager directly too much, but this is a super useful program that allows you to right click inside the Nautilus file manager and open a terminal window to that location.
 
 ``` bash
 sudo apt-get install nautilus-open-terminal
@@ -59,7 +59,7 @@ sudo apt-get install wget
 
 #### Git
 
-If you're doing web development, chances are that you're going to use Git at some point in time. Git is a distributed version control system. Even if you choose to use a different VCS or if you choose not to use version control at all (PLEASE RETHINK THIS DECISION), then you'll probably still want Git installed just to easily download other helpful projects or tool source code. You can simply use `sudo apt-get install git` to install Git, but unfortunately the default Ubuntu repository is pointing to an old version. Add the new repository, update, and install.
+If you're doing web development, chances are that you're going to use Git at some point in time. Git is a distributed version control system. Even if you choose to use a different VCS or if you choose not to use version control at all (PLEASE RETHINK THIS DECISION), then you'll probably still want Git installed just to easily download other helpful projects or source code. You can simply use `sudo apt-get install git` to install Git, but unfortunately the default Ubuntu repository is pointing to an old version. Add the new repository, update, and install.
 
 ``` bash
 sudo add-apt-repository ppa:git-core/ppa
@@ -79,7 +79,7 @@ git config --global user.email johndoe@example.com
 
 ```
 
-We can also configure the a global .gitingore file. A .gitignore file is used to tell Git to ignore certain files so they don't get tracked in the repository. You'll often want to create a project .gitignrore file to ignore specific files for that project, like you environment variables file or node modules, but a global .gitignore is great for ignoring system files like Mac OS's `.DS_Store` files or Vim and Emacs `~` files.
+We can also configure the a global .gitingore file. A .gitignore file is used to tell Git to ignore certain files so they don't get tracked in the repository. You'll often want to create a project .gitignore file to ignore project specific files, like your environment variables file or node modules, but a global .gitignore is great for ignoring system files like Mac OS's `.DS_Store` files or Vim and Emacs `~` files.
 
 ``` bash
 echo "*~" >> ~/.gitignore_global
@@ -89,9 +89,9 @@ echo ".DS_Store" >> ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 ```
 
-You can check out more Git configuration options [here](https://git-scm.com/book/tr/v2/Customizing-Git-Git-Configuration)
+You can check out more Git configuration options [here](https://git-scm.com/book/tr/v2/Customizing-Git-Git-Configuration).
 
-Running Git locally is a great way to keep your code revision history, but you'll probably want your code backed up to a web-based repository hosting service. This is where [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), and [Bitbucket](https://bitbucket.org/) come in handy. GitHub seems to be the most popular, but GitLab and Bitbucket both offer unlimited public and private repositories for free. GitHub and GitLab both seem pretty solid with GitHub's user interface maybe being slightly nicer. I haven't had the chance to try Bitbucket yet, but it's used by some pretty major companies, so I would guess it's pretty decent too.
+Running Git locally is a great way to keep your code revision history, but you'll probably want to back your code up to a web-based repository hosting service. This is where [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), and [Bitbucket](https://bitbucket.org/) come in handy. GitHub seems to be the most popular, but GitLab and Bitbucket both offer unlimited public and private repositories for free. GitHub and GitLab both seem pretty solid with GitHub's user interface maybe being slightly nicer. I haven't had the chance to try Bitbucket yet, but it's used by some pretty major companies, so I would guess it's also decent.
 
 In order to get set up for a remote hosting service, we'll need to create an SSH key.
 
@@ -112,7 +112,8 @@ Now test it out.
 ``` bash
 ssh -T git@github.com
 
-# Expected reply: 'Hi YOUR_USERNAME! You've successfully authenticated, but GitHub does not provide shell access.'
+# Expected reply: 'Hi YOUR_USERNAME! You've successfully authenticated,
+# but GitHub does not provide shell access.'
 ```
 
 ``` bash
@@ -129,21 +130,21 @@ While the default gnome terminal and bash shell are both great, I think Zshell a
 git clone https://github.com/chriskempson/base16-gnome-terminal.git ~/.config/base16-gnome-terminal
 ```
 
-The above command will use git to clone Chris's theme repository from GitHub into your home/.config directory. Next we need to execute all of the theme shell scripts. This git.io link is a short link to a simple shell script that should do just that. This command takes several seconds to run, so give it a minute.
+The above command will use git to clone Chris's theme repository from GitHub into your `home/.config` directory. Next we need to execute all of the theme shell scripts. This git.io link is a short link to a simple shell script that should do just that. This command takes several seconds to run, so give it a minute.
 
 ``` bash
 curl -fsSL http://git.io/vOpiF | bash
 ```
 
-All of the base16-gnome-terminal themes should now be available in your terminal under  `Edit --> Profiles`. Make sure to select the *Profile used when launching a new terminal:*. You will need to restart your terminal after making any changes.
+All of the base16-gnome-terminal themes should now be available in your terminal under  **Edit -> Profiles**. Make sure to select the **Profile used when launching a new terminal:**. You will need to restart your terminal after making any changes.
 
-Now that our terminal is nice and pretty, let's get Zshell set up to make it a bit more user friendly.
+Now that our terminal is nice and pretty, let's get Z Shell set up to make it a bit more user friendly.
 
 ``` bash
 sudo apt-get install zsh
 ```
 
-You can run Zsh simply by typing `zsh` into your shell and hitting enter. The first time you do this, you will be asked to set up Z Shell. I am comfortable with the defaults, so I usually just type `0` to exit and create the ~/.zshrc file. Typing `1` will give you the chance to go through and tweak the configuration though.
+You can run Zsh simply by typing `zsh` into your terminal prompt and hitting enter. The first time you do this, you will be asked to set up Z Shell. I am comfortable with the defaults, so I usually just type `0` to exit and create the ~/.zshrc file. Typing `1` will give you the chance to go through and tweak the configuration to your liking.
 
 Now make Zsh your default shell.
 
@@ -151,23 +152,23 @@ Now make Zsh your default shell.
 chsh -s $(which zsh)
 ```
 
-**After you run that command, you will need to logout and log back in.** Zsh is a powerful shell, but to really see it shine, you'll want to check out [Oh My Zsh](https://github.com/robbyrussell/oh-my-zsh) as well. Oh My Zsh adds hundreds of plugins and themes for Z Shell.
+**After you run that command, you will need to logout and log back in.** Zsh is a powerful shell, but to really see it shine, you'll want to check out [Oh-My-Zsh](https://github.com/robbyrussell/oh-my-zsh) as well. Oh-My-Zsh adds hundreds of plugins and themes for Z Shell.
 
 ``` bash
 sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-Oh-my-zsh adds a pretty solid default configuration for Z Shell, but if you really want to make it your own, check out the configuration file.
+Oh-My-Zsh adds a pretty solid default configuration for Z Shell, but if you really want to make it your own, check out the configuration file.
 
 ``` bash
 gedit ~/.zshrc
 ```
 
-Oh-my-zsh comes with over 100 themes! You can check out the screenshots [here](https://github.com/robbyrussell/oh-my-zsh/wiki/themes). Somehow, even with all these themes, I ended up creating my own which is a combination of the robbyrussell theme and the Fish shell look.
+Oh-My-Zsh comes with over 100 themes! You can check out the screenshots [here](https://github.com/robbyrussell/oh-my-zsh/wiki/themes). Somehow, even with all these themes, I ended up creating my own which is a combination of the default robbyrussell theme and the Fish shell look.
 
 ![Robby Fish Zsh Theme](http://i.imgur.com/bkSpHSd.png "RobbyFishZshTheme")
 
-This curl command will add my RobbyFish theme to your Oh My Zsh themes folder.
+This curl command will add my RobbyFish theme to your Oh-My-Zsh themes folder.
 
 ``` bash
 curl -fsSL http://git.io/v3fbq -o ~/.oh-my-zsh/themes/robbyfish.zsh-theme
@@ -183,7 +184,7 @@ ZSH_THEME="robbyrussell"
 ZSH_THEME="robbyfish"
 ```
 
-Aliases are abbreviations for often used commands. You can add aliases to Zsh at the bottom of the ~/.zshrc config file. I have aliases to directories I often want to jump to like project folders as well as for tasks I use frequently. Here are some aliases you may find useful.
+Aliases are abbreviations for frequently used commands. You can add aliases to Zsh at the bottom of the ~/.zshrc config file. I have aliases to jump to directories I often use and aliases for long commands I don't want to type. Here are some aliases you may find useful.
 
 ``` bash
 alias c="clear" # Clears your terminal screen
@@ -194,7 +195,7 @@ alias fn="foreman run nodemon"
 alias fr="foreman run rails s"
 alias frc="foreman run rails c"
 alias fruby="foreman run ruby"
-alias srv="python -m SimpleHTTPServer \$1" # Simple, but awesome python http server; If you're working with a static http page, you can use this to serve it rather than viewing the file directly in the browser
+alias srv="python -m SimpleHTTPServer \$1" # Simple, but awesome python http server; If you're working with a static http page, you can use this to serve it rather than viewing the file directly in the browser; The final parameter allows you to specifiy a port
 # PostgreSQL aliases
 alias psqle="sudo -u postgres psql" #
 alias pgserver="sudo -u postgres service postgresql start"
@@ -208,9 +209,9 @@ alias mongoRestart="sudo service mongod restart"
 
 #### Chrome
 
-Since we're covering web development, we also better get set up with a web browser. Ubuntu comes pre-installed with Firefox, but in general I prefer Chrome for development, and even if you like Firefox, you'll want Chrome for testing.
+Since we're covering web development, we'll probably want a web browser. Ubuntu comes pre-installed with Firefox, but in general I prefer Chrome for development, and even if you like Firefox, you'll want Chrome for testing.
 
-Install the from the Google Linux Repository.
+Install the public key from the Google Linux Repository.
 
 ``` bash
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -232,7 +233,7 @@ sudo apt-get install google-chrome-stable
 
 ### Text Editors / IDEs
 
-Now it's time to get down to the good stuff. *Real* programmers use VIM or EMACS of course, so it's fortunate that Sublime Text and Atom both support some form of Vim or Vi mode :) For those of us who havn't taken the Vim/Emacs dive yet, Sublime Text 3 and Atom are both great options. Sublime Text seems faster and more stable that Atom, but Atom is relatively new and it's getting better all the time. Atom was heavily influenced by Sublime Text so no matter which one you choose, switching shouldn't be too much of an issue. While Sublime Text is freeware and will set you back $70 for the license, Atom is free and open source, and backed by GitHub. (*Note* I mostly use Atom now, but I paid for Sublime Text and never regretted it once. It's a great piece of software.)
+Now it's time to get down to the good stuff. *Real* programmers use VIM or EMACS of course, so it's fortunate that Sublime Text and Atom both support some form of Vim or Vi mode :) For those of us who haven't taken the Vim/Emacs dive yet, Sublime Text 3 and Atom are both great options. Sublime Text seems faster and more stable than Atom, but Atom is relatively new and it's getting better all the time. Atom is also a bit more user friendly as it comes with a built in package manager that allows you to browse packages and user settings are generally easier to find. Atom was heavily influenced by Sublime Text so no matter which one you choose, switching shouldn't be too much of an issue. Sublime Text can be evaluated for free, but the license will set you back $70. If you're just getting into development, this might be a bit steep, but I think it's totally worth it. Atom is free and open source, and backed by GitHub. (*Note* I've been using Atom for the last month or so and while I generally like it, it does seem to get a bit slow sometimes, especially when editing a Markdown document with live preview. I think for stability and speed, I'm probably going to switch back to Sublime Text for a while longer.)
 
 #### Sublime Text
 
@@ -246,11 +247,11 @@ sudo apt-get update
 sudo apt-get install sublime-text-installer
 ```
 
-Sublime Text has tons of settings you can tweak to your liking, so I'm not going to go into that here. If you want to add plugins to Sublime though, and you will, then you will need to install [Package Control](https://packagecontrol.io/installation). I would also highly suggest going through Tuts+ [Perfect Workflow in Sublime Text 2](https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2) course. The course is a bit old, some of their suggested packages are outdated, and it was done on a Mac so some of the shortcuts will be a little different, but it has loads of great information on being more productive with Sublime Text and that experience will transfer to Atom as well.
+Sublime Text has tons of settings you can tweak to your liking. I'm not going to go into that here, but I would highly suggest going through Tuts+ [Perfect Workflow in Sublime Text 2](https://code.tutsplus.com/courses/perfect-workflow-in-sublime-text-2) course. The course is a bit old, some of their suggested packages are outdated, and it was done on a Mac so some of the shortcuts will be a little different, but it has loads of great information on being more productive with Sublime Text and that experience will transfer to Atom as well. To get started with Sublime Text, you'll want to install [Package Control](https://packagecontrol.io/installation). This will make it much easier to add plugins to Sublime Text.
 
 #### Atom
 
-As I mentioned before, Atom is my primary text editor now and I think it does a better job of making settings more accessible, it comes with a package manager, and it seems to have more useful preinstalled packages.
+As I mentioned before, Atom has been my primary text editor for the last month and I think it does a better job of making settings more accessible, it comes with a package manager, and it seems to have more useful preinstalled packages.
 
 ``` bash
 sudo add-apt-repository ppa:webupd8team/atom
@@ -284,7 +285,7 @@ npm -v
 
 You can start a node REPL session by typing `node` into your terminal and hitting enter.
 
-Remember the [nodemon](https://www.npmjs.com/package/nodemon) and [foreman](https://www.npmjs.com/package/foreman) aliases we touched on earlier? Now we can install those with NPM. The `-g` option in the following commands means that we are installing these tools globally. When you are installing npm modules for a specific project, you would skip out on the `-g` option and instead use `--save` which will add a reference to that module to your projects `package.json` file.
+Remember the [nodemon](https://www.npmjs.com/package/nodemon) and [foreman](https://www.npmjs.com/package/foreman) aliases we touched on earlier? Now we can install those with NPM. The `-g` option in the following commands means that we are installing these tools globally. When you are installing npm modules for a specific project, you would skip the `-g` option and instead use `--save` which will add a reference to that module to your projects `package.json` file.
 
 ``` bash
 sudo npm install -g nodemon
@@ -296,7 +297,7 @@ Now you can run your node projects with `foreman run nodemon` or our alias `fn`.
 
 #### Rails and Ruby
 
-JavaScript is built into your browser, but if we want to run Ruby files, we'll need to install the Ruby interpreter first. [Go Rails](https://gorails.com/setup) has SUPER awesome tutorials on getting set up for Ruby on Rails development. They even break it down for each individual version of Ubuntu or Mac OSX. I'm just going to cover their instructions for Ubuntu 14.04.
+Unlike JavaScript, Ruby can only be run on a server, not a browser. So if we want to run Ruby files, we'll need to install the Ruby interpreter first. [Go Rails](https://gorails.com/setup) has SUPER awesome tutorials on getting set up for Ruby on Rails development. They even break it down for each individual version of Ubuntu or Mac OSX. I'm just going to cover their instructions for Ubuntu 14.04.
 
 We're going to install Ruby version 2.2.2 using rbenv. First we'll install the dependencies for Ruby and then we'll actually get ruby set up. (*NOTE* Anytime we add to the path, we will do it for both bash and zsh.)
 
@@ -339,13 +340,13 @@ rbenv global 2.2.2
 ruby -v
 ```
 
-As NPM is the node package management, Rubygems are Ruby's version of package management. Rubygems was installed during the Ruby install process. Now we'll tell ruby to not install the documentation for each package locally.
+As NPM is the package manager for Node, Rubygems are Ruby's version of package management. Rubygems was installed during the Ruby install process. Now we'll tell ruby to not install the documentation for each package locally.
 
 ``` bash
 echo "gem: --no-ri --no-rdoc" > ~/.gemrc
 ```
 
-Unlike NPM modules, Gems are always installed globally so there is no need for `-g` or `--save`. *NOTE* Ruby on Rails projects will still have a gemfile which contains the gems that are specific to that project. This allows you to easily get someone else's Rails project up and running by running `Rails bundle` from whithin the project. Of course, we better install `bundler` if we want to do that.
+With NPM, we used the `-g` and `--save` options to specify whether to save a package locally or specifically to a project. Gems however, are always installed globally so there is no need for those options. *NOTE* Ruby on Rails projects will still have a gemfile which contains the gems that are specific to that project. This allows you to easily get someone else's Rails project up and running by running `Rails bundle` from whithin the project. Of course, we better install `bundler` if we want to do that.
 
 ``` bash
 gem install bundler
@@ -365,7 +366,7 @@ rbenv rehash
 
 ### Databases
 
-Like web development frameworks, there's a wealth of database options out there as well. [PostgreSQL](http://www.postgresql.org/) seems like a solid and popular choice for an RDBMS and [MongoDB](https://www.mongodb.org/) has become quite popular for it's role in the MEAN stack.
+Like web development frameworks, there are more available database management systems than you'll ever have a chance to try. [PostgreSQL](http://www.postgresql.org/) seems like a solid and popular choice for an RDBMS and [MongoDB](https://www.mongodb.org/) has become quite popular for it's role in the MEAN stack.
 
 #### PostgreSQL
 
@@ -444,3 +445,5 @@ Control + C # Run this in the terminal where the mongod instance is running to s
 ```
 
 `mongo` will start the mongo console. Here is a list of [mongo shell quick references](http://docs.mongodb.org/manual/reference/mongo-shell/).
+
+So that's it! We're now all set up to start some web development with Node or Rails. Looking for where to start next? Try [Scotch.io](https://scotch.io/) for tutorials on using Node and [Codecademy](https://www.codecademy.com/learn) for Rails tutorials.

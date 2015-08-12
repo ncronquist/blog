@@ -2,8 +2,8 @@
  * Site header
  */
 .site-header {
-    border-top: 5px solid $grey-color-dark;
-    border-bottom: 1px solid $grey-color-light;
+    // border-top: 5px solid $grey-color-dark;
+    // border-bottom: 1px solid $grey-color-light;
     min-height: 56px;
 
     // Positioning context for the mobile navigation icon
@@ -21,6 +21,13 @@
     &:visited {
         color: $grey-color-dark;
     }
+
+    &:hover {
+        // color: $text-color;
+        color: $grey-color;
+        // text-decoration: underline;
+        text-decoration: none;
+    }
 }
 
 .site-nav {
@@ -32,12 +39,17 @@
     }
 
     .page-link {
-        color: $text-color;
+        // color: $text-color;
+        color: $grey-color-dark;
         line-height: $base-line-height;
 
         // Gaps between nav items, but not on the first one
         &:not(:first-child) {
             margin-left: 20px;
+        }
+
+        &:hover {
+            color: $grey-color;
         }
     }
 
@@ -173,12 +185,26 @@
     margin-left: 0;
     list-style: none;
 
-    > li {
+    // > li {
+    //     margin-bottom: $spacing-unit;
+    // }
+    > article {
         margin-bottom: $spacing-unit;
     }
 }
 
+.post-date {
+    display: inline-block;
+    margin-left: 8px;
+    padding-left: 12px;
+    border-left: #d5dbde 1px solid;
+    // text-transform: uppercase;
+    // font-size: 1.3rem;
+    white-space: nowrap;
+}
+
 .post-meta {
+    margin-top: $spacing-unit-sm;
     font-size: $small-font-size;
     color: $grey-color;
 }
@@ -194,11 +220,12 @@
  * Posts
  */
 .post-header {
-    margin-bottom: $spacing-unit;
+    // margin-bottom: $spacing-unit;
 }
 
 .post-title {
-    font-size: 42px;
+    // font-size: 42px;
+    font-size: 2.2rem;
     letter-spacing: -1px;
     line-height: 1;
 

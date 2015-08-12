@@ -4,17 +4,36 @@ layout: default
 
 <div class="home">
 
-  <h1 class="page-heading">Posts</h1>
+  <!-- <h1 class="page-heading">Posts</h1> -->
 
   <ul class="post-list">
     {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
+<!--       <li>
         <h2>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
         </h2>
-      </li>
+
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      </li> -->
+      <article class="post">
+        <header class="post-header">
+            <h3 class="post-title"><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></h3>
+        </header>
+        <section class="post-excerpt">
+            {{ post.excerpt | remove: '<p>' | remove: '</p>' }} <a class="read-more" href="{{ post.url | prepend: site.baseurl }}">&raquo;</a>
+        </section>
+        <footer class="post-meta">
+            {% if site.author %}
+                {{ site.author }}
+            {% endif %}
+            <!-- {% if post.categories.size > 0 %} 
+                {{ post.categories | array_to_sentence_string | prepend: 'on ' }} 
+            {% endif %} -->
+            <time class="post-date" datetime="{{ post.date | date:"%Y-%m-%d" }}">
+                {{ post.date | date_to_string }}
+            </time> 
+        </footer>
+      </article>
     {% endfor %}
   </ul>
 
